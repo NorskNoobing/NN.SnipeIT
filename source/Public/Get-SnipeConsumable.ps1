@@ -26,7 +26,8 @@ function Get-SnipeConsumable {
             "assigned_to",
             "created_at",
             "purchase_date",
-            "purchase_cost")][string]$sort,
+            "purchase_cost"
+            )][string]$sort,
         [Parameter(ParameterSetName="List consumables")][ValidateSet("asc","desc")][string]$order,
         [Parameter(ParameterSetName="List consumables")][ValidateSet("true","false")][string]$expand,
         [Parameter(ParameterSetName="List consumables")][int]$category_id,
