@@ -1,4 +1,4 @@
-function Get-SnipeGroup {
+function Get-SnipeGroups {
     [CmdletBinding(DefaultParameterSetName="List groups")]
     param (
         [Parameter(Position=0,ParameterSetName="List groups")][string]$name,

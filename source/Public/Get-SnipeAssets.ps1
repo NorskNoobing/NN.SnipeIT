@@ -1,4 +1,4 @@
-function Get-SnipeAsset {
+function Get-SnipeAssets {
     [CmdletBinding(DefaultParameterSetName="List assets")]
     param (
         [Parameter(ParameterSetName="List assets")][int]$limit,

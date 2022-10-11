@@ -1,4 +1,4 @@
-function Get-SnipeLocation {
+function Get-SnipeLocations {
     <#
     .SYNOPSIS
         Gets locations from Snipe-IT

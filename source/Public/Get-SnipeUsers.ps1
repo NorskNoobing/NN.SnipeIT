@@ -1,4 +1,4 @@
-function Get-SnipeUser {
+function Get-SnipeUsers {
     [CmdletBinding(DefaultParameterSetName="List users")]
     param (
         [Parameter(Position=0,ParameterSetName="List users")][string]$search,

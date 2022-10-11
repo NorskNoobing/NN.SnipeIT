@@ -1,1 +1,1 @@
-Register-ArgumentCompleter -CommandName Get-SnipeLocation -ParameterName name -ScriptBlock {((Get-SnipeLocation).name | Sort-Object).ForEach({"`'$_`'"})}
+Register-ArgumentCompleter -CommandName Get-SnipeLocations -ParameterName name -ScriptBlock {((Get-SnipeLocations).name | Sort-Object).ForEach({"`'$_`'"})}

@@ -1,4 +1,4 @@
-function Get-SnipeConsumable {
+function Get-SnipeConsumables {
     [CmdletBinding(DefaultParameterSetName="List consumables")]
     param (
         [Parameter(Position=0,ParameterSetName="List consumables")][string]$name,
