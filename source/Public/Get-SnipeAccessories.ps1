@@ -59,23 +59,5 @@ function Get-SnipeAccessories {
         }
     }
 
-    $splat = @{
-        "Uri" = $uri
-        "Method" = "GET"
-        "Headers" = @{
-            "Authorization" = "Bearer $(Get-SnipeAccessToken)"
-            "Accept" = "application/json"
-            "Content-Type" = "application/json"
-        }
-    }
-    $result = Invoke-RestMethod @splat
-    
-    switch ($PsCmdlet.ParameterSetName) {
-        {($_ -eq "Get accessory by id") -and !$listCheckedOut} {
-            $result
-        }
-        default {
-            $result.rows
-        }
-    }
+    Invoke-SnipeMethod -Method "GET" -Uri $uri
 }

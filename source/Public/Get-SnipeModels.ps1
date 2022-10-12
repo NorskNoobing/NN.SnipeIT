@@ -31,23 +31,5 @@ function Get-SnipeModels {
         }
     }
 
-    $splat = @{
-        "Uri" = $uri
-        "Method" = "GET"
-        "Headers" = @{
-            "Authorization" = "Bearer $(Get-SnipeAccessToken)"
-            "Accept" = "application/json"
-            "Content-Type" = "application/json"
-        }
-    }
-    $result = Invoke-RestMethod @splat
-    
-    switch ($PsCmdlet.ParameterSetName) {
-        "List models" {
-            $result.rows
-        }
-        "Get model by id" {
-            $result
-        }
-    }
+    Invoke-SnipeMethod -Method "GET" -Uri $uri
 }

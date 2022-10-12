@@ -13,23 +13,5 @@ function Get-SnipeFields {
         }
     }
 
-    $splat = @{
-        "Uri" = $uri
-        "Method" = "GET"
-        "Headers" = @{
-            "Authorization" = "Bearer $(Get-SnipeAccessToken)"
-            "Accept" = "application/json"
-            "Content-Type" = "application/json"
-        }
-    }
-    $result = Invoke-RestMethod @splat
-    
-    switch ($PsCmdlet.ParameterSetName) {
-        "List fields" {
-            $result.rows
-        }
-        "Get field by id" {
-            $result
-        }
-    }
+    Invoke-SnipeMethod -Method "GET" -Uri $uri
 }

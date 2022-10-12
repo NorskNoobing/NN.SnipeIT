@@ -51,23 +51,5 @@ function Get-SnipeUsers {
         }
     }
 
-    $splat = @{
-        "Uri" = $uri
-        "Method" = "GET"
-        "Headers" = @{
-            "Authorization" = "Bearer $(Get-SnipeAccessToken)"
-            "Accept" = "application/json"
-            "Content-Type" = "application/json"
-        }
-    }
-    $result = Invoke-RestMethod @splat
-    
-    switch ($PsCmdlet.ParameterSetName) {
-        "List users" {
-            $result.rows
-        }
-        "Get user by id" {
-            $result
-        }
-    }
+    Invoke-SnipeMethod -Method "GET" -Uri $uri
 }

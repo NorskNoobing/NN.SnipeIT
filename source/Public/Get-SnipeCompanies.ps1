@@ -27,23 +27,5 @@ function Get-SnipeCompanies {
         }
     }
 
-    $splat = @{
-        "Uri" = $uri
-        "Method" = "GET"
-        "Headers" = @{
-            "Authorization" = "Bearer $(Get-SnipeAccessToken)"
-            "Accept" = "application/json"
-            "Content-Type" = "application/json"
-        }
-    }
-    $result = Invoke-RestMethod @splat
-    
-    switch ($PsCmdlet.ParameterSetName) {
-        "List companies" {
-            $result.rows
-        }
-        "Get company by id" {
-            $result
-        }
-    }
+    Invoke-SnipeMethod -Method "GET" -Uri $uri
 }

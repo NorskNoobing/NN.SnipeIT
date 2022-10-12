@@ -60,23 +60,5 @@ function Get-SnipeLocations {
         }
     }
 
-    $splat = @{
-        "Uri" = $uri
-        "Method" = "GET"
-        "Headers" = @{
-            "Authorization" = "Bearer $(Get-SnipeAccessToken)"
-            "Accept" = "application/json"
-            "Content-Type" = "application/json"
-        }
-    }
-    $result = Invoke-RestMethod @splat
-
-    switch ($PsCmdlet.ParameterSetName) {
-        "List locations" {
-            $result.rows
-        }
-        "Get location by id" {
-            $result
-        }
-    }
+    Invoke-SnipeMethod -Method "GET" -Uri $uri
 }

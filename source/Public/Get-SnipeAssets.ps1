@@ -83,23 +83,5 @@ function Get-SnipeAssets {
         }
     }
 
-    $splat = @{
-        "Uri" = $uri
-        "Method" = "GET"
-        "Headers" = @{
-            "Authorization" = "Bearer $(Get-SnipeAccessToken)"
-            "Accept" = "application/json"
-            "Content-Type" = "application/json"
-        }
-    }
-    $result = Invoke-RestMethod @splat
-    
-    switch ($PsCmdlet.ParameterSetName) {
-        {($_ -eq "Get asset by id") -or ($_ -eq "Get asset by asset_tag")} {
-            $result
-        }
-        default {
-            $result.rows
-        }
-    }
+    Invoke-SnipeMethod -Method "GET" -Uri $uri
 }

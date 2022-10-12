@@ -28,20 +28,5 @@ function Get-SnipeMaintenances {
         }
     }
 
-    $splat = @{
-        "Uri" = $uri
-        "Method" = "GET"
-        "Headers" = @{
-            "Authorization" = "Bearer $(Get-SnipeAccessToken)"
-            "Accept" = "application/json"
-            "Content-Type" = "application/json"
-        }
-    }
-    $result = Invoke-RestMethod @splat
-    
-    switch ($PsCmdlet.ParameterSetName) {
-        "List maintenances" {
-            $result.rows
-        }
-    }
+    Invoke-SnipeMethod -Method "GET" -Uri $uri
 }
