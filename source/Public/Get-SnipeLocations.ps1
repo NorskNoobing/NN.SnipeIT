@@ -24,7 +24,9 @@ function Get-SnipeLocations {
     #>
     [CmdletBinding(DefaultParameterSetName="List locations")]
     param (
-        [Parameter(Position=0,ParameterSetName="List locations")][string]$name,
+        [Parameter(Position=0,ParameterSetName="List locations")][ValidateScript({
+            $_ -in (Get-SnipeLocations).name
+        })][string]$name,
         [Parameter(ParameterSetName="List locations")][int]$limit,
         [Parameter(ParameterSetName="List locations")][int]$offset,
         [Parameter(ParameterSetName="List locations")][string]$search,

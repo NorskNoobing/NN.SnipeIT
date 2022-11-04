@@ -1,9 +1,9 @@
 #Requires -Module ModuleBuilder
 [string]$moduleName = "NN.SnipeIT"
-[version]$version = "0.0.1"
+[version]$version = "0.0.2"
 [string]$author = "NorskNoobing"
 [string]$ProjectUri = "https://github.com/mrfylke/brukeropplevelse-integrasjoner"
-[string]$releaseNotes = "Initial commit"
+[string]$releaseNotes = "Update Get-SnipeLocations.ps1"
 [string]$description = "Snipe-IT API integration"
 [array]$tags = @("Snipe-IT","API")
 [version]$PSversion = "7.2"
