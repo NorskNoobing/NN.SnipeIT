@@ -8,7 +8,7 @@ function New-SnipeAccessToken {
     #Create parent folders of the access token file
     $accessTokenDir = $accessTokenPath.Substring(0, $accessTokenPath.lastIndexOf('\'))
     if (!(Test-Path $accessTokenDir)) {
-        New-Item -ItemType Directory $accessTokenDir | Out-Null
+        $null = New-Item -ItemType Directory $accessTokenDir
     }
 
     #Create access token file
