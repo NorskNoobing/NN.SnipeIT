@@ -3,8 +3,8 @@ function New-SnipeEndpoint {
         [string]$endpointPath = "$env:USERPROFILE\.creds\Snipe-IT\snipeitEndpoint.xml"
     )
 
-    $pureserviceUrl = Read-Host "Enter Snipe-IT url"
-    $endpoint = "$pureserviceUrl/api/v1"
+    $snipeUrl = Read-Host "Enter Snipe-IT url"
+    $endpoint = "$snipeUrl/api/v1"
 
     #Create parent folders of the access token file 
     $endpointDir = $endpointPath.Substring(0, $endpointPath.lastIndexOf('\'))
