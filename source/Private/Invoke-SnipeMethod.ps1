@@ -6,7 +6,7 @@ function Invoke-SnipeMethod {
     
     $splat = @{
         "Uri" = $uri
-        "Method" = "GET"
+        "Method" = $Method
         "Headers" = @{
             "Authorization" = "Bearer $(Get-SnipeAccessToken)"
             "Accept" = "application/json"
